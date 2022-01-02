@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/CSS/main.css" />
+    <script defer src="/JS/script.js"></script>
     <title>To Do List</title>
   </head>
   <body class="body">
@@ -27,16 +28,18 @@
         <header class="adding__header">Dodaj nowe zadania</header>
         <p class="adding__paragraph">
           <input
-            class="adding__input"
+            class="adding__input js-addingInput"
             type="text"
             placeholder="Co jest do zrobienia?"
           />
-          <button class="adding__button">Dodaj zadanie</button>
+          <button class="adding__button js-addButton">Dodaj zadanie</button>
         </p>
       </section>
       <section class="list">
         <header class="list__header">Lista zadań</header>
-        <p class="list__paragraph"></p>
+        <p class="list__paragraph">
+          <li class="list__tasks"></li>
+        </p>
       </section>
     </main>
   </body>
