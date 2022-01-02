@@ -1,24 +1,33 @@
-const addingNewTask = (e, listTasks, inputElement) => {
-  e.preventDefault();
-  const task = inputElement.value;
-  const tasks = [];
-  tasks.push(task);
-  listTasks.innerHTML += `<li>${tasks}</li>`;
+const addingTest = (task, listTasks, newTask) => {
+  listTasks.innerHTML += `<li>${task}</li>`;
+
   console.log(task);
 };
 
-const render = () => {
-  const addButtonElement = document.querySelector(".js-addButton");
+const addingNewTask = e => {
+  e.preventDefault();
+  const listTasks = document.querySelector(".js-list__tasks");
+  const tasks = [{ x: "aa" }];
+
+  let newTask = "";
+
+  for (const task of tasks) {
+    newTask += `<li>${task.x}</li>`;
+  }
+
+  listTasks.innerHTML = newTask;
+  //   console.log(tasks);
   const inputElement = document.querySelector(".js-addingInput");
-
-  const listTasks = document.querySelector(".list__tasks");
-
-  addButtonElement.addEventListener("click", e =>
-    addingNewTask(e, listTasks, inputElement)
-  );
+  const task = inputElement.value.trim();
+  addingTest(task, listTasks);
 };
 
+const render = () => {};
+
 const init = () => {
+  const addButtonElement = document.querySelector(".js-addButton");
+  addButtonElement.addEventListener("click", e => addingNewTask(e));
+
   render();
 };
 init();
