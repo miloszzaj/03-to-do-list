@@ -74,3 +74,11 @@ html {
     border-bottom: 1px solid rgb(240, 240, 240);
 
 }
+
+.newTaskLine {
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    color: red;
+    list-style-type: none;
+}

@@ -1,40 +1,44 @@
-// const addingTest = (task, listTasks, newTask) => {
-//   listTasks.innerHTML += `<li>${task}</li>`;
+{
+  const tasks = [{ content: "" }];
 
-//   console.log(task);
-// };
+  const addingNewTask = e => {
+    e.preventDefault();
+    const inputElement = document.querySelector(".js-addingInput");
+    let task = inputElement.value.trim();
+    if (task === "") {
+      return;
+    }
 
-const tasks = [{ content: "" }];
+    tasks.push({
+      content: task,
+    });
 
-const addingNewTask = e => {
-  e.preventDefault();
-  const inputElement = document.querySelector(".js-addingInput");
-  let task = inputElement.value.trim();
-  if (task === "") {
-    return;
-  }
+    renderFromArray();
+  };
 
-  tasks.push({
-    content: task,
-  });
+  const renderFromArray = () => {
+    let listTasks = document.querySelector(".js-list__tasks");
 
-  renderFromArray();
-};
+    let newTask = "";
 
-const renderFromArray = () => {
-  let listTasks = document.querySelector(".js-list__tasks");
+    for (const task of tasks) {
+      newTask += `<li class="newTaskLine"><button>wykonane</button>${task.content}<button class="js-deletingButton">kasuj</button></li>`;
+    }
 
-  let newTask = "";
+    listTasks.innerHTML = newTask;
+    const deleteButtonElements =
+      document.querySelectorAll(".js-deletingButton");
+    deleteButtonElements.forEach((deleteButton, index) => {
+      deleteButton.addEventListener("click", () => {
+        tasks.splice(index, 1);
+        renderFromArray();
+      });
+    });
+  };
 
-  for (const task of tasks) {
-    newTask += `<li>${task.content}</li>`;
-  }
-
-  listTasks.innerHTML = newTask;
-};
-
-const init = () => {
-  const addButtonElement = document.querySelector(".js-addButton");
-  addButtonElement.addEventListener("click", e => addingNewTask(e));
-};
-init();
+  const init = () => {
+    const addButtonElement = document.querySelector(".js-addButton");
+    addButtonElement.addEventListener("click", e => addingNewTask(e));
+  };
+  init();
+}
