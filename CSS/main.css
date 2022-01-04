@@ -82,3 +82,7 @@ html {
     color: red;
     list-style-type: none;
 }
+
+.doneTest {
+    color: rgb(49, 143, 12);
+}
