@@ -22,9 +22,12 @@
     let newTask = "";
 
     for (const task of tasks) {
-      newTask += `<li class="newTaskLine"><button class="js-doneButton">wykonane</button><span ${
-        task.isDone ? 'style="text-decoration: line-through"' : ""
-      } class="js-spanTask">${
+      newTask += `<li class="newTaskLine"><button class="js-doneButton">wykonane</button>
+      <span 
+      ${
+        task.isDone ? ' style="text-decoration: line-through"' : ""
+      } class="js-spanTask">
+      ${
         task.content
       }</span><button class="js-deletingButton">kasuj</button></li>`;
     }
@@ -44,6 +47,7 @@
     const doneTask = index => {
       console.log(tasks[index].isDone);
       tasks[index].isDone = !tasks[index].isDone;
+      renderFromArray();
     };
 
     const doneButtonElements = document.querySelectorAll(".js-doneButton");
