@@ -39,17 +39,16 @@
       });
     });
 
-    const doneTask = index => {
-      const spanTest = document.querySelectorAll(".js-spanTask");
-      console.log(spanTest);
+    //testy
 
-      // tasks[index].content.classList.add("doneTest");
-      console.log(tasks[index].content);
+    const doneTask = index => {
+      console.log(tasks[index].isDone);
+      tasks[index].isDone = !tasks[index].isDone;
     };
 
     const doneButtonElements = document.querySelectorAll(".js-doneButton");
+
     doneButtonElements.forEach((doneButton, index) => {
-      console.log(doneButton);
       doneButton.addEventListener("click", () => doneTask(index));
     });
   };
