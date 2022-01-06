@@ -25,7 +25,6 @@
   };
 
   const doneTask = index => {
-    console.log(tasks[index].isDone);
     tasks[index].isDone = !tasks[index].isDone;
     renderFromArray();
   };
@@ -49,12 +48,12 @@
     for (const task of tasks) {
       newTask += `
       <li class="list__item">
-      <button class="js-doneButton list__itemButton">${
-        task.isDone ? "&#10003" : ""
-      }</button>
+      <button class="js-doneButton list__itemButton">
+      ${task.isDone ? "&#10003" : ""}
+      </button>
       <span class="list__item--span ${task.isDone ? "list__item--done" : ""}" >
       ${task.content}</span>
-      <button  class="js-deletingButton list__itemButton list__itemButton--delete">&#128465</button>
+      <button class="js-deletingButton list__itemButton list__itemButton--delete">&#128465</button>
       </li>`;
     }
     listTasks.innerHTML = newTask;
