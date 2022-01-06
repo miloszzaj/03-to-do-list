@@ -38,6 +38,7 @@ html {
 .adding__header {
     font-weight: 700;
     padding: 10px;
+    margin: 10px;
     border-bottom: 1px solid rgb(240, 240, 240);
 }
 
@@ -50,8 +51,8 @@ html {
 
 .adding__input {
     flex-grow: 9;
-    margin-right: 10px;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
     border: 1px solid rgb(240, 240, 240);
 }
 
@@ -60,10 +61,11 @@ html {
     background-color: teal;
     color: white;
     border-style: none;
+    margin: 10px;
 }
 
 .list {
-    margin-top: 5px;
+    margin-top: 7px;
     background-color: #fff;
     width: 100%;
 }
@@ -72,7 +74,12 @@ html {
     font-weight: 700;
     padding: 10px;
     border-bottom: 1px solid rgb(240, 240, 240);
-    margin-bottom: 10px;
+    margin: 10px;
+}
+
+.list__tasks {
+    margin: 10px;
+    padding-left: 0;
 }
 
 .list__item {
@@ -82,9 +89,24 @@ html {
     list-style-type: none;
     border-bottom: 1px solid rgb(240, 240, 240);
     padding: 10px;
-
+    line-height: 2;
 }
 
 .list__item--done {
     text-decoration: line-through
+}
+
+.list__item--span {
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+.list__itemButton {
+    background-color: green;
+    border: none;
+    width: 32px;
+}
+
+.list__itemButton--delete {
+    background-color: red;
 }

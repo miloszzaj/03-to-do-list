@@ -24,10 +24,12 @@
     for (const task of tasks) {
       newTask += `
       <li class="list__item">
-      <button class="js-doneButton">wykonane</button>
-      <span class="${task.isDone ? "list__item--done" : ""}" >
+      <button class="js-doneButton list__itemButton">${
+        task.isDone ? "&#10004" : ""
+      }</button>
+      <span class="list__item--span ${task.isDone ? "list__item--done" : ""}" >
       ${task.content}</span>
-      <button class="js-deletingButton">kasuj</button>
+      <button  class="js-deletingButton list__itemButton list__itemButton--delete">&#128465</button>
       </li>`;
     }
     listTasks.innerHTML = newTask;
