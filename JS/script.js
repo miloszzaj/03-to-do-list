@@ -22,14 +22,13 @@
     let newTask = "";
 
     for (const task of tasks) {
-      newTask += `<li class="newTaskLine"><button class="js-doneButton">wykonane</button>
-      <span 
-      ${
-        task.isDone ? ' style="text-decoration: line-through"' : ""
-      } class="js-spanTask">
-      ${
-        task.content
-      }</span><button class="js-deletingButton">kasuj</button></li>`;
+      newTask += `
+      <li class="list__item">
+      <button class="js-doneButton">wykonane</button>
+      <span class="${task.isDone ? "list__item--done" : ""}" >
+      ${task.content}</span>
+      <button class="js-deletingButton">kasuj</button>
+      </li>`;
     }
     listTasks.innerHTML = newTask;
 
