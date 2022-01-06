@@ -4,6 +4,7 @@
   const addingNewTask = e => {
     e.preventDefault();
     const inputElement = document.querySelector(".js-addingInput");
+    inputElement.focus();
     let task = inputElement.value.trim();
     inputElement.value = "";
 
@@ -18,7 +19,16 @@
 
     renderFromArray();
   };
+  const deleteTask = index => {
+    tasks.splice(index, 1);
+    renderFromArray();
+  };
 
+  const doneTask = index => {
+    console.log(tasks[index].isDone);
+    tasks[index].isDone = !tasks[index].isDone;
+    renderFromArray();
+  };
   const connectedButtons = () => {
     const deleteButtonElements =
       document.querySelectorAll(".js-deletingButton");
@@ -40,7 +50,7 @@
       newTask += `
       <li class="list__item">
       <button class="js-doneButton list__itemButton">${
-        task.isDone ? "&#10004" : ""
+        task.isDone ? "&#10003" : ""
       }</button>
       <span class="list__item--span ${task.isDone ? "list__item--done" : ""}" >
       ${task.content}</span>
@@ -50,17 +60,6 @@
     listTasks.innerHTML = newTask;
 
     connectedButtons();
-  };
-
-  const deleteTask = index => {
-    tasks.splice(index, 1);
-    renderFromArray();
-  };
-
-  const doneTask = index => {
-    console.log(tasks[index].isDone);
-    tasks[index].isDone = !tasks[index].isDone;
-    renderFromArray();
   };
 
   const init = () => {
