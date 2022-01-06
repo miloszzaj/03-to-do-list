@@ -24,7 +24,7 @@
     renderFromArray();
   };
 
-  const doneTask = index => {
+  const setTaskDone = index => {
     tasks[index].isDone = !tasks[index].isDone;
     renderFromArray();
   };
@@ -37,7 +37,7 @@
 
     const doneButtonElements = document.querySelectorAll(".js-doneButton");
     doneButtonElements.forEach((doneButton, index) => {
-      doneButton.addEventListener("click", () => doneTask(index));
+      doneButton.addEventListener("click", () => setTaskDone(index));
     });
   };
 
@@ -51,8 +51,9 @@
       <button class="js-doneButton list__itemButton">
       ${task.isDone ? "&#10003" : ""}
       </button>
-      <span class="list__item--span ${task.isDone ? "list__item--done" : ""}" >
-      ${task.content}</span>
+      <span class="list__item--span ${task.isDone ? "list__item--done" : ""}">
+      ${task.content}
+      </span>
       <button class="js-deletingButton list__itemButton list__itemButton--delete">&#128465</button>
       </li>`;
     }
