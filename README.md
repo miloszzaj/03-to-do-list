@@ -13,7 +13,6 @@ List of things that one wants to get done or that need to get done.
 
 - ES6+ features
 - Pure JavaScript
-- @media query
 - BEM
 - FlexBox
 - OpenGraph
