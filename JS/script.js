@@ -5,6 +5,8 @@
     e.preventDefault();
     const inputElement = document.querySelector(".js-addingInput");
     let task = inputElement.value.trim();
+    inputElement.value = "";
+
     if (task === "") {
       return;
     }
@@ -15,6 +17,19 @@
     });
 
     renderFromArray();
+  };
+
+  const connectedButtons = () => {
+    const deleteButtonElements =
+      document.querySelectorAll(".js-deletingButton");
+    deleteButtonElements.forEach((deleteButton, index) => {
+      deleteButton.addEventListener("click", () => deleteTask(index));
+    });
+
+    const doneButtonElements = document.querySelectorAll(".js-doneButton");
+    doneButtonElements.forEach((doneButton, index) => {
+      doneButton.addEventListener("click", () => doneTask(index));
+    });
   };
 
   const renderFromArray = () => {
@@ -34,33 +49,23 @@
     }
     listTasks.innerHTML = newTask;
 
-    const deleteButtonElements =
-      document.querySelectorAll(".js-deletingButton");
-    deleteButtonElements.forEach((deleteButton, index) => {
-      deleteButton.addEventListener("click", () => {
-        tasks.splice(index, 1);
-        renderFromArray();
-      });
-    });
+    connectedButtons();
+  };
 
-    //testy
+  const deleteTask = index => {
+    tasks.splice(index, 1);
+    renderFromArray();
+  };
 
-    const doneTask = index => {
-      console.log(tasks[index].isDone);
-      tasks[index].isDone = !tasks[index].isDone;
-      renderFromArray();
-    };
-
-    const doneButtonElements = document.querySelectorAll(".js-doneButton");
-
-    doneButtonElements.forEach((doneButton, index) => {
-      doneButton.addEventListener("click", () => doneTask(index));
-    });
+  const doneTask = index => {
+    console.log(tasks[index].isDone);
+    tasks[index].isDone = !tasks[index].isDone;
+    renderFromArray();
   };
 
   const init = () => {
-    const addButtonElement = document.querySelector(".js-addButton");
-    addButtonElement.addEventListener("click", e => addingNewTask(e));
+    const addingParagraphElement = document.querySelector(".adding__paragraph");
+    addingParagraphElement.addEventListener("submit", e => addingNewTask(e));
   };
   init();
 }
