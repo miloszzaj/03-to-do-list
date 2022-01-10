@@ -8,7 +8,7 @@
     let task = inputElement.value.trim();
     inputElement.value = "";
 
-    if (task === "") {
+    if (!task) {
       return;
     }
 
@@ -17,18 +17,18 @@
       isDone: false,
     });
 
-    renderFromArray();
+    render();
   };
   const deleteTask = index => {
     tasks.splice(index, 1);
-    renderFromArray();
+    render();
   };
 
   const setTaskDone = index => {
     tasks[index].isDone = !tasks[index].isDone;
-    renderFromArray();
+    render();
   };
-  const connectedButtons = () => {
+  const bindButtons = () => {
     const deleteButtonElements =
       document.querySelectorAll(".js-deletingButton");
     deleteButtonElements.forEach((deleteButton, index) => {
@@ -41,7 +41,7 @@
     });
   };
 
-  const renderFromArray = () => {
+  const render = () => {
     let listTasks = document.querySelector(".js-list__tasks");
     let newTask = "";
 
@@ -59,7 +59,7 @@
     }
     listTasks.innerHTML = newTask;
 
-    connectedButtons();
+    bindButtons();
   };
 
   const init = () => {

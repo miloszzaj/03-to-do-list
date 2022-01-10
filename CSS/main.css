@@ -31,6 +31,25 @@ html {
     margin-top: 30px;
 }
 
+@media (max-width: 900px) {
+    .todolist__header {
+        margin-left: 20px;
+    }
+
+}
+
+@media (max-width: 420px) {
+    .todolist__header {
+        text-align: center;
+        margin: 30px auto 0;
+
+    }
+
+    .adding__header {
+        text-align: center;
+    }
+}
+
 .adding {
     background-color: rgb(255, 255, 255);
     width: 100%;
@@ -38,9 +57,16 @@ html {
 }
 
 .adding__header {
+    font-size: 1.3rem;
     font-weight: 700;
     padding: 20px;
     border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+@media (max-width: 420px) {
+    .adding__header {
+        text-align: center;
+    }
 }
 
 .adding__paragraph {
@@ -49,8 +75,15 @@ html {
     margin: 10px;
 }
 
+@media (max-width: 420px) {
+    .adding__paragraph {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .adding__input {
-    flex-grow: 9;
+    flex-grow: 14;
     margin: 10px;
     padding: 10px;
     border: 1px solid rgb(240, 240, 240);
@@ -63,7 +96,7 @@ html {
     color: white;
     border-style: none;
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
 }
 
 .list {
@@ -74,6 +107,7 @@ html {
 }
 
 .list__header {
+    font-size: 1.3rem;
     font-weight: 700;
     padding: 20px;
     border-bottom: 1px solid rgb(240, 240, 240);
@@ -101,7 +135,7 @@ html {
 
 .list__item--span {
     margin-right: auto;
-    margin-left: 10px;
+    margin: 10px;
 }
 
 .list__itemButton {
@@ -113,11 +147,11 @@ html {
 }
 
 .list__itemButton:hover {
-    background-color: rgb(4, 165, 4);
+    background-color: rgb(22, 207, 22);
 }
 
 .list__itemButton:active {
-    background-color: rgb(101, 202, 101);
+    background-color: rgb(169, 252, 169);
 }
 
 
@@ -126,36 +160,9 @@ html {
 }
 
 .list__itemButton--delete:hover {
-    background-color: rgb(207, 70, 70);
+    background-color: rgb(255, 107, 107);
 }
 
-.list__itemButton--delete:hover {
-    background-color: rgb(224, 113, 113);
-}
-
-
-
-
-@media (max-width: 900px) {
-    .todolist__header {
-        margin-left: 20px;
-    }
-
-}
-
-@media (max-width: 420px) {
-    .adding__paragraph {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .todolist__header {
-        text-align: center;
-        margin: 30px auto 0;
-
-    }
-
-    .adding__header {
-        text-align: center;
-    }
+.list__itemButton--delete:active {
+    background-color: rgb(248, 171, 171);
 }
