@@ -97,6 +97,11 @@ html {
     border-style: none;
     margin: 10px;
     padding: 5px;
+    transition: 1s;
+}
+
+.adding__button:hover {
+    transform: scale(1.2);
 }
 
 .list {
@@ -144,6 +149,7 @@ html {
     border: none;
     min-width: 32px;
     height: 32px;
+    transition: background-color 0.5s ease
 }
 
 .list__itemButton:hover {
