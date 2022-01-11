@@ -41,7 +41,7 @@
     });
   };
 
-  const render = () => {
+  const renderTasks = () => {
     let listTasks = document.querySelector(".js-list__tasks");
     let newTask = "";
 
@@ -58,7 +58,15 @@
       </li>`;
     }
     listTasks.innerHTML = newTask;
+  };
 
+  const renderButtons = () => {};
+
+  const bindButtonsEvents = () => {};
+
+  const render = () => {
+    renderTasks();
+    renderButtons();
     bindButtons();
   };
 

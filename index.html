@@ -17,12 +17,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/main.css" />
+    <link rel="stylesheet" href="CSS/addingSection.css" />
+    <link rel="stylesheet" href="CSS/listSection.css" />
     <script defer src="JS/script.js"></script>
     <title>To Do List</title>
   </head>
   <body class="body">
     <main class="todolist">
-      <header class="todolist__header">Lista zadań</header>
+      <header class="todolist__header">Lista zadań
+        
+      </header>
       <section class="adding">
         <header class="adding__header">Dodaj nowe zadanie</header>
         <form class="adding__paragraph">
@@ -36,7 +40,14 @@
         </form>
       </section>
       <section class="list">
-        <header class="list__header">Lista zadań</header>
+        <header class="list__header">Lista zadań
+
+          <!-- //przyciski -->
+          <div class="list__buttonsWrapper">
+            <button class="list__headerButton list__headerButton-hide js-hideButton">Ukryj ukończone</button>
+            <button class="list__headerButton list__headerButton-complete js-completeButton">Ukończ wszystkie</button>
+          </div>
+      </header>
         <p class="list__paragraph">
           <ul class="list__tasks js-list__tasks"></ul>
         </p>
