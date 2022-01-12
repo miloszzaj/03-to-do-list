@@ -20,7 +20,6 @@
 } */
 
 .list__headerButton {
-    /* float: right; */
     border: none;
     background-color: white;
     color: teal;
@@ -30,7 +29,7 @@
 }
 
 .list__headerButton:hover {
-    color: rgb(38, 209, 209);
+    color: rgb(7, 182, 182);
 }
 
 .list__tasks {

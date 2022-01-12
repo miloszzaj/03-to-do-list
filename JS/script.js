@@ -66,6 +66,10 @@
     hideButton.addEventListener("click", () => {
       console.log("hideButton");
     });
+
+    completeButton.addEventListener("click", () =>
+      console.log("completeButton")
+    );
   };
 
   const bindButtonsEvents = () => {};
