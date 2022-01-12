@@ -60,7 +60,13 @@
     listTasks.innerHTML = newTask;
   };
 
-  const renderButtons = () => {};
+  const renderButtons = () => {
+    const hideButton = document.querySelector(".js-hideButton");
+    const completeButton = document.querySelector(".js-completeButton");
+    hideButton.addEventListener("click", () => {
+      console.log("hideButton");
+    });
+  };
 
   const bindButtonsEvents = () => {};
 
