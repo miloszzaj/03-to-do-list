@@ -74,6 +74,10 @@
     background-color: rgb(169, 252, 169);
 }
 
+.toggleClass {
+    color: red;
+}
+
 
 .list__itemButton--delete {
     background-color: red;

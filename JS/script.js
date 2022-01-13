@@ -1,5 +1,6 @@
 {
-  const tasks = [];
+  let tasks = [];
+  let hideDoneTasks = false;
 
   const addingNewTask = e => {
     e.preventDefault();
@@ -12,10 +13,12 @@
       return;
     }
 
-    tasks.push({
-      content: task,
-      isDone: false,
-    });
+    tasks = [...tasks, { content: task, isDone: false }];
+
+    // tasks.push({
+    //   content: task,
+    //   isDone: false,
+    // });
 
     render();
   };
@@ -25,6 +28,7 @@
   };
 
   const setTaskDone = index => {
+    // tasks=tasks.map(tasks[index].isDone => )
     tasks[index].isDone = !tasks[index].isDone;
     render();
   };
@@ -61,15 +65,27 @@
   };
 
   const renderButtons = () => {
+    const buttonsWrapper = document.querySelector(".js-buttonsWrapper");
+    if (tasks) {
+      buttonsWrapper.innerHTML = `<button class="list__headerButton list__headerButton-hide js-hideButton">Ukryj ukończone</button>
+            <button class="list__headerButton list__headerButton-complete js-completeButton">Ukończ wszystkie</button>`;
+    }
     const hideButton = document.querySelector(".js-hideButton");
     const completeButton = document.querySelector(".js-completeButton");
     hideButton.addEventListener("click", () => {
-      console.log("hideButton");
+      hideDoneTasks = !hideDoneTasks;
+      console.log("hideButton", hideDoneTasks);
+      if (!hideDoneTasks) {
+      }
     });
 
-    completeButton.addEventListener("click", () =>
-      console.log("completeButton")
-    );
+    completeButton.addEventListener("click", (e, task, index) => {
+      e.preventDefault();
+      if (task.isDone) {
+        console.log("completeButton");
+        // newTask.classList.toggle("toggleClass");
+      }
+    });
   };
 
   const bindButtonsEvents = () => {};
