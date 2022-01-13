@@ -77,6 +77,14 @@
     render();
   };
 
+  // odznaczanie ukończenia
+
+  const toggleHideDoneTask = () => {
+    hideDoneTasks = !hideDoneTasks;
+      console.log("hideButton", hideDoneTasks);
+      render()
+  }
+
   const renderButtons = () => {
     const buttonsWrapper = document.querySelector(".js-buttonsWrapper");
     if (tasks) {
