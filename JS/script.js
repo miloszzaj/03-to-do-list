@@ -23,13 +23,16 @@
     render();
   };
   const deleteTask = index => {
-    tasks.splice(index, 1);
+    [...tasks.splice(index, 1)];
     render();
   };
 
   const setTaskDone = index => {
-    // tasks=tasks.map(tasks[index].isDone => )
-    tasks[index].isDone = !tasks[index].isDone;
+    tasks = [
+      ...tasks.slice(0, index),
+      { ...tasks[index], done: !tasks[index].done },
+      ...tasks.slice(index + 1),
+    ];
     render();
   };
   const bindButtons = () => {
@@ -51,7 +54,7 @@
 
     for (const task of tasks) {
       newTask += `
-      <li class="list__item">
+      <li class="list__item js-toggleVisibility">
       <button class="js-doneButton list__itemButton">
       ${task.isDone ? "&#10003" : ""}
       </button>
@@ -64,6 +67,16 @@
     listTasks.innerHTML = newTask;
   };
 
+  // wszystkie ukończone
+
+  const setAllDone = () => {
+    tasks = tasks.map(task => ({...task, isDone = true}));
+        // tasks = tasks.map(task => (task.isDone = true));
+
+    console.log(setAllDone);
+    render();
+  };
+
   const renderButtons = () => {
     const buttonsWrapper = document.querySelector(".js-buttonsWrapper");
     if (tasks) {
@@ -72,20 +85,33 @@
     }
     const hideButton = document.querySelector(".js-hideButton");
     const completeButton = document.querySelector(".js-completeButton");
+
     hideButton.addEventListener("click", () => {
+      const listItemDone = document.querySelector(".list__item--done");
+      const toggleVisibilityElement = document.querySelector(
+        ".js-toggleVisibility"
+      );
+
+      const cos = tasks.map(({ isDone }) => `<li>${isDone}</li>`);
+      console.log(cos);
+
       hideDoneTasks = !hideDoneTasks;
       console.log("hideButton", hideDoneTasks);
       if (!hideDoneTasks) {
+        console.log(toggleVisibilityElement);
+        let finishedTasks = tasks.filter(({ isDone }) => isDone);
+        // finishedTasks = [...finishedTasks, { hideDoneTasks }];
+        console.log(finishedTasks);
       }
     });
 
-    completeButton.addEventListener("click", (e, task, index) => {
-      e.preventDefault();
-      if (task.isDone) {
-        console.log("completeButton");
-        // newTask.classList.toggle("toggleClass");
-      }
-    });
+    // completeButton.addEventListener("click", (e, task, index) => {
+    //   e.preventDefault();
+    //   if (task.isDone) {
+    //     console.log("completeButton");
+    //     // newTask.classList.toggle("toggleClass");
+    //   }
+    // });
   };
 
   const bindButtonsEvents = () => {};

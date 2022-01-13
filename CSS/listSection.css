@@ -74,7 +74,7 @@
     background-color: rgb(169, 252, 169);
 }
 
-.toggleClass {
+.list__item--visibility {
     color: red;
 }
 
