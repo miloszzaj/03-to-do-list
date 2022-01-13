@@ -117,7 +117,7 @@
     }
   };
 
-  // wiązanie przycisków do JavaScriptu
+  // wiązanie przycisków do JavaScriptu i uruchomnienie zdarzeń
 
   const bindButtonsEvents = () => {
     const hideButton = document.querySelector(".js-hideButton");
