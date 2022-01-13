@@ -52,6 +52,10 @@
     text-decoration: line-through
 }
 
+.list__item--hidden {
+    color: red;
+}
+
 .list__item--span {
     margin-right: auto;
     margin: 10px;
@@ -73,11 +77,6 @@
 .list__itemButton:active {
     background-color: rgb(169, 252, 169);
 }
-
-.list__item--visibility {
-    color: red;
-}
-
 
 .list__itemButton--delete {
     background-color: red;
