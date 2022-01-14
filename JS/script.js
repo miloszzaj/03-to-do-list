@@ -80,9 +80,6 @@
 
   const setAllDone = () => {
     tasks = tasks.map(task => ({ ...task, isDone: true }));
-    // tasks = tasks.map(task => (task.isDone = true));
-
-    console.log(setAllDone);
     render();
   };
 
@@ -90,7 +87,6 @@
 
   const toggleHideDoneTask = () => {
     hideDoneTasks = !hideDoneTasks;
-    console.log("hideButton", hideDoneTasks);
     render();
   };
 
@@ -99,12 +95,12 @@
   const renderButtons = () => {
     const buttonsWrapper = document.querySelector(".js-buttonsWrapper");
     if (tasks) {
-      buttonsWrapper.innerHTML = `<button class="list__headerButton list__headerButton-hide js-hideButton">${
-        hideDoneTasks ? "Pokaż" : "Ukryj"
-      } ukończone</button>
-            <button class="list__headerButton list__headerButton-complete js-completeButton"${
-              tasks.every(({ isDone }) => isDone) ? "disabled" : ""
-            }> Ukończ wszystkie</button>`;
+      buttonsWrapper.innerHTML = `<button class="list__headerButton js-hideButton">
+      ${hideDoneTasks ? "Pokaż" : "Ukryj"} 
+      ukończone</button>
+      <button class="list__headerButton js-completeButton"
+      ${tasks.every(({ isDone }) => isDone) ? "disabled" : ""}> 
+      Ukończ wszystkie</button>`;
     }
   };
 
