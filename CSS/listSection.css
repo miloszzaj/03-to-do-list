@@ -13,7 +13,12 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
 
+@media (max-width: 500px) {
+    .list__header {
+        flex-direction: column;
+    }
 }
 
 .list__buttonsWrapper {
@@ -22,12 +27,11 @@
     justify-content: center;
 }
 
-/* .list__headerButtons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-} */
+@media (max-width: 500px) {
+    .list__buttonsWrapper {
+        flex-direction: column;
+    }
+}
 
 .list__headerButton {
     border: none;
@@ -45,6 +49,10 @@
 
 .list__headerButton:hover {
     color: rgb(7, 182, 182);
+}
+
+.list__headerButton:disabled {
+    color: rgb(107, 107, 107);
 }
 
 .list__tasks {

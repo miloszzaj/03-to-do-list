@@ -1,6 +1,9 @@
 {
+  //  stan
   let tasks = [];
   let hideDoneTasks = false;
+
+  // dodawanie nowego zadania
 
   const addingNewTask = e => {
     e.preventDefault();
@@ -15,17 +18,17 @@
 
     tasks = [...tasks, { content: task, isDone: false }];
 
-    // tasks.push({
-    //   content: task,
-    //   isDone: false,
-    // });
-
     render();
   };
+
+  // usuwanie zadania
+
   const deleteTask = index => {
     [...tasks.splice(index, 1)];
     render();
   };
+
+  // oznaczania zadania jako wykonane
 
   const setTaskDone = index => {
     tasks[index].isDone = !tasks[index].isDone;
@@ -37,6 +40,9 @@
     // ];
     render();
   };
+
+  // wiązanie przycisków z konkretnego zadania do JavaScriptu i uruchomnienie zdarzeń po naciśnięciu
+
   const bindButtons = () => {
     const deleteButtonElements =
       document.querySelectorAll(".js-deletingButton");
@@ -68,21 +74,6 @@
 
     let listTasks = document.querySelector(".js-list__tasks");
     listTasks.innerHTML = tasks.map(taskToHTML).join("");
-    // let newTask = "";
-
-    // for (const task of tasks) {
-    //   newTask += `
-    //   <li class="list__item js-toggleVisibility">
-    //   <button class="js-doneButton list__itemButton">
-    //   ${task.isDone ? "&#10003" : ""}
-    //   </button>
-    //   <span class="list__item--span ${task.isDone ? "list__item--done" : ""}">
-    //   ${task.content}
-    //   </span>
-    //   <button class="js-deletingButton list__itemButton list__itemButton--delete">&#128465</button>
-    //   </li>`;
-    // }
-    // listTasks.innerHTML = newTask;
   };
 
   // wszystkie ukończone
@@ -111,13 +102,13 @@
       buttonsWrapper.innerHTML = `<button class="list__headerButton list__headerButton-hide js-hideButton">${
         hideDoneTasks ? "Pokaż" : "Ukryj"
       } ukończone</button>
-            <button class="list__headerButton list__headerButton-complete js-completeButton">${
+            <button class="list__headerButton list__headerButton-complete js-completeButton"${
               tasks.every(({ isDone }) => isDone) ? "disabled" : ""
-            } Ukończ wszystkie</button>`;
+            }> Ukończ wszystkie</button>`;
     }
   };
 
-  // wiązanie przycisków do JavaScriptu i uruchomnienie zdarzeń
+  // wiązanie przycisków z nagłówka do JavaScriptu i uruchomnienie zdarzeń po naciśnięciu
 
   const bindButtonsEvents = () => {
     const hideButton = document.querySelector(".js-hideButton");
@@ -125,6 +116,8 @@
     const completeButton = document.querySelector(".js-completeButton");
     completeButton.addEventListener("click", setAllDone);
   };
+
+  // podstawowe funkcje
 
   const render = () => {
     renderTasks();
