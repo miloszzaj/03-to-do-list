@@ -11,13 +11,10 @@
     inputElement.focus();
     let task = inputElement.value.trim();
     inputElement.value = "";
-
     if (!task) {
       return;
     }
-
     tasks = [...tasks, { content: task, isDone: false }];
-
     render();
   };
 
@@ -31,8 +28,6 @@
   // oznaczania zadania jako wykonane
 
   const setTaskDone = index => {
-    // tasks[index].isDone = !tasks[index].isDone;
-
     tasks = [
       ...tasks.slice(0, index),
       { ...tasks[index], isDone: !tasks[index].done },
@@ -56,7 +51,7 @@
     });
   };
 
-  // renderowanie widoku
+  // renderowanie widoku wszystkich zadań
 
   const renderTasks = () => {
     const taskToHTML = task => `
