@@ -31,13 +31,13 @@
   // oznaczania zadania jako wykonane
 
   const setTaskDone = index => {
-    tasks[index].isDone = !tasks[index].isDone;
+    // tasks[index].isDone = !tasks[index].isDone;
 
-    // tasks = [
-    //   ...tasks.slice(0, index),
-    //   { ...tasks[index], done: !tasks[index].done },
-    //   ...tasks.slice(index + 1),
-    // ];
+    tasks = [
+      ...tasks.slice(0, index),
+      { ...tasks[index], isDone: !tasks[index].done },
+      ...tasks.slice(index + 1),
+    ];
     render();
   };
 
