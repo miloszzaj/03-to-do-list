@@ -21,16 +21,16 @@
   // usuwanie zadania
 
   const deleteTask = index => {
-    [...tasks.splice(index, 1)];
+    tasks = [...tasks.slice(0, index), ...tasks.splice(index + 1)];
     render();
   };
 
   // oznaczania zadania jako wykonane
 
-  const setTaskDone = index => {
+  const toggleTaskDone = index => {
     tasks = [
       ...tasks.slice(0, index),
-      { ...tasks[index], isDone: !tasks[index].done },
+      { ...tasks[index], isDone: !tasks[index].isDone },
       ...tasks.slice(index + 1),
     ];
     render();
@@ -47,7 +47,7 @@
 
     const doneButtonElements = document.querySelectorAll(".js-doneButton");
     doneButtonElements.forEach((doneButton, index) => {
-      doneButton.addEventListener("click", () => setTaskDone(index));
+      doneButton.addEventListener("click", () => toggleTaskDone(index));
     });
   };
 
