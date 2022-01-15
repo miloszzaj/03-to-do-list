@@ -5,7 +5,7 @@
 
   // dodawanie nowego zadania
 
-  const addingNewTask = e => {
+  const addNewTask = e => {
     e.preventDefault();
     const inputElement = document.querySelector(".js-addingInput");
     inputElement.focus();
@@ -85,7 +85,7 @@
     render();
   };
 
-  // wytworzenie przycisków w HTML
+  // podpięcie stworzonych w JS przycisków do drzewa DOM
 
   const renderButtons = () => {
     const buttonsWrapper = document.querySelector(".js-buttonsWrapper");
@@ -119,7 +119,7 @@
 
   const init = () => {
     const addingParagraphElement = document.querySelector(".adding__paragraph");
-    addingParagraphElement.addEventListener("submit", e => addingNewTask(e));
+    addingParagraphElement.addEventListener("submit", e => addNewTask(e));
   };
   init();
 }
