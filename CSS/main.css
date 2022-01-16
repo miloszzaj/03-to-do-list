@@ -12,7 +12,8 @@ html {
 
 .body {
     background-color: rgb(240, 240, 240);
-    word-break: break-word
+    word-break: break-word;
+    margin: 7px
 }
 
 .todolist {

@@ -62,9 +62,7 @@
 
 .list__item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    text-align: start;
     list-style-type: none;
     border-bottom: 1px solid rgb(240, 240, 240);
     padding: 10px;
@@ -82,6 +80,8 @@
 .list__item--span {
     margin-right: auto;
     margin: 10px;
+    text-align: start;
+    flex-basis: 100%;
 }
 
 .list__itemButton {
@@ -90,7 +90,8 @@
     border: none;
     min-width: 32px;
     height: 32px;
-    transition: background-color 0.5s ease
+    transition: background-color 0.5s ease;
+    align-items: center;
 }
 
 .list__itemButton:hover {
@@ -103,6 +104,7 @@
 
 .list__itemButton--delete {
     background-color: red;
+    align-items: center;
 }
 
 .list__itemButton--delete:hover {
