@@ -33,6 +33,7 @@
       { ...tasks[index], isDone: !tasks[index].isDone },
       ...tasks.slice(index + 1),
     ];
+    console.log("tasks array", tasks);
     render();
   };
 
@@ -90,12 +91,14 @@
   const renderButtons = () => {
     const buttonsWrapper = document.querySelector(".js-buttonsWrapper");
     if (tasks) {
-      buttonsWrapper.innerHTML = `<button class="list__headerButton js-hideButton">
+      buttonsWrapper.innerHTML = `
+      <button class="list__headerButton js-hideButton">
       ${hideDoneTasks ? "Pokaż" : "Ukryj"} 
       ukończone</button>
       <button class="list__headerButton js-completeButton"
       ${tasks.every(({ isDone }) => isDone) ? "disabled" : ""}> 
-      Ukończ wszystkie</button>`;
+      Ukończ wszystkie
+      </button>`;
     }
   };
 
